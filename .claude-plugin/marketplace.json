@@ -1,0 +1,14 @@
+{
+  "name": "forminal",
+  "owner": {
+    "name": "Awesome Tools LLC"
+  },
+  "description": "The Forminal plugin: build forms by chat, embed them on any website and read the submissions.",
+  "plugins": [
+    {
+      "name": "forminal",
+      "source": "./",
+      "description": "Build forms by chat, embed them on any website and read the submissions, through the hosted Forminal MCP server."
+    }
+  ]
+}

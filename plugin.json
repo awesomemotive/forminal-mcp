@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "forminal",
+  "version": "1.0.0",
+  "description": "Build forms by chat, embed them on any website and read the submissions, through the hosted Forminal MCP server.",
+  "author": {
+    "name": "Awesome Tools LLC",
+    "url": "https://forminal.ai"
+  },
+  "homepage": "https://forminal.ai",
+  "repository": "https://github.com/awesomemotive/forminal-mcp",
+  "license": "MIT",
+  "keywords": ["forms", "form builder", "surveys", "contact form", "embed", "popup", "submissions", "mcp"]
+}
