@@ -11,7 +11,7 @@
   },
   "icons": [
     { "src": "https://raw.githubusercontent.com/awesomemotive/forminal-mcp/main/assets/icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] },
-    { "src": "https://app.forminal.ai/brand/forminal-avatar-cyan.svg", "mimeType": "image/svg+xml", "sizes": ["any"] }
+    { "src": "https://app.forminal.ai/icon.svg", "mimeType": "image/svg+xml", "sizes": ["any"] }
   ],
   "remotes": [
     { "type": "streamable-http", "url": "https://app.forminal.ai/mcp" }

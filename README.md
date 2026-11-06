@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/icon-512.png" alt="Forminal" width="96" height="96"></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icon-512-dark.png"><img src="assets/icon-512.png" alt="Forminal" width="96" height="96"></picture></p>
 
 # Forminal MCP server
 
