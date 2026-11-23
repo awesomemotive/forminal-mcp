@@ -19,7 +19,7 @@ The first time your agent calls it, a browser tab opens. You sign in to Forminal
 | Claude Code | `claude mcp add forminal --scope user --transport http https://app.forminal.ai/mcp`, then run `/mcp`, pick `forminal` and sign in. Or install the plugin from this repo: `/plugin marketplace add awesomemotive/forminal-mcp`, then `/plugin install forminal@forminal` |
 | Claude (web and desktop) | Settings, Connectors, add a custom connector with the address above |
 | ChatGPT | Add the address as a custom MCP server under Plugins (turn on developer mode first if your plan needs it) |
-| Codex CLI | `codex mcp add forminal --url https://app.forminal.ai/mcp`, then `codex mcp login forminal` |
+| Codex | Install the plugin from this repo: `codex plugin marketplace add awesomemotive/forminal-mcp`, then install Forminal from the Plugins Directory. Or add the server alone: `codex mcp add forminal --url https://app.forminal.ai/mcp`, then `codex mcp login forminal` |
 | Cursor | Add `{ "mcpServers": { "forminal": { "url": "https://app.forminal.ai/mcp" } } }` to `~/.cursor/mcp.json` or `.cursor/mcp.json` |
 | VS Code | Add `{ "servers": { "forminal": { "type": "http", "url": "https://app.forminal.ai/mcp" } } }` to `.vscode/mcp.json` |
 | Gemini CLI | `gemini extensions install https://github.com/awesomemotive/forminal-mcp`, or `gemini mcp add --scope user --transport http forminal https://app.forminal.ai/mcp`. Run `/mcp auth forminal` if no tab opens |
@@ -66,7 +66,7 @@ The page never holds a key or calls the API. Full page, floating button and slid
 - **Sharing:** `get_embed_snippet` and `get_form_links` return the link, the inline embed and the popup snippet.
 - **Submissions:** search, read, summarize, tag, mark as read or spam, delete, and export to CSV.
 - **Analytics:** views, conversion, abandonments and drop-off per field, on plans that include Form analytics.
-- **Account:** your plan and its features, and where each form sends its entries, with the last error, so the agent can tell you why entries aren't arriving.
+- **Account:** your plan and its features, and where each form sends its submissions, with the last error, so the agent can tell you why submissions aren't arriving.
 
 The full list, with every argument, is served as JSON at https://app.forminal.ai/api/mcp/tools.
 
@@ -79,7 +79,7 @@ The full list, with every argument, is served as JSON at https://app.forminal.ai
 
 ## Plans
 
-The free Lite plan includes unlimited forms and responses, with no card needed. Some features, such as form analytics, need a paid plan, and the agent can check yours with `get_account` before it promises one. See [Pricing](https://forminal.ai/pricing/).
+The free Lite plan includes unlimited forms and submissions, with no card needed. Some features, such as form analytics, need a paid plan, and the agent can check yours with `get_account` before it promises one. See [Pricing](https://forminal.ai/pricing/).
 
 ## What's in this repo
 
@@ -89,7 +89,9 @@ The server is hosted, so this repo has no server code. These are the files each 
 |---|---|
 | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.mcp.json` | Claude Code plugin and marketplace |
 | `skills/forminal/SKILL.md` | The Forminal skill, which tells an agent when and how to use the tools (Claude Code and Kiro) |
-| `plugin.json`, `mcp.json` | Agent Plugins format (Kiro powers and other Agent Plugins clients) |
+| `plugin.json`, `mcp.json` | Agent Plugins format: the ChatGPT and Codex plugin (its listing and review details sit under `extensions.com.openai`), Kiro powers and other Agent Plugins clients |
+| `.agents/plugins/marketplace.json` | The Codex and ChatGPT desktop marketplace for this repo |
+| `scripts/build-openai-zip.sh` | Checks `plugin.json` against OpenAI's limits and builds the ZIP for the OpenAI plugin portal into `dist/` |
 | `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension |
 | `llms-install.md` | Install steps for Cline and other agents that install from a README |
 | `server.json` | The entry for the official MCP Registry (`ai.forminal/forminal`) |
