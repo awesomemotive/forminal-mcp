@@ -34,6 +34,17 @@ need '.version | test("^[0-9]+\\.[0-9]+\\.[0-9]+$")' 'version is not semver'
 for key in websiteURL supportURL privacyPolicyURL termsOfServiceURL; do
   need "$openai.interface.$key | startswith(\"https://\")" "interface.$key must be an https URL"
 done
+# The reviewer opens every listing URL, and a redirect to an unrelated page reads as a broken link.
+if command -v curl >/dev/null; then
+  for key in websiteURL supportURL privacyPolicyURL termsOfServiceURL; do
+    url="$(jq -r "$openai.interface.$key" "$manifest")"
+    status="$(curl -s -o /dev/null -w '%{http_code}' "$url" || true)"
+    if [ "$status" != 200 ]; then
+      echo "interface.$key ($url) answers $status, not 200" >&2
+      fail=1
+    fi
+  done
+fi
 jq -e '[.mcpServers[] | .headers // {} | length == 0] | all' mcp.json >/dev/null || { echo 'mcp.json: headers must be empty' >&2; fail=1; }
 [ "$fail" -eq 0 ] || exit 1
 

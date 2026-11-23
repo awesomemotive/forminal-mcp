@@ -99,6 +99,7 @@ The server is hosted, so this repo has no server code. These are the files each 
 
 ## Help, privacy and terms
 
+- Support: support@forminal.ai, or https://forminal.ai/support/
 - Docs: https://forminal.ai/docs/
 - Agent instructions: https://app.forminal.ai/llms.txt
 - Privacy policy: https://forminal.ai/privacy/
