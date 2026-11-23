@@ -10,7 +10,7 @@ Forminal is a hosted form builder. A form lives on Forminal, gets its own public
 ## When to use it
 
 - The user wants a form, survey or sign-up on a page of their site, or as a link to share.
-- The user wants to read, summarize, tag or export the answers to a Forminal form, or find out why entries aren't arriving.
+- The user wants to read, summarize, tag or export the answers to a Forminal form, or find out why submissions aren't arriving.
 - Don't use it for a login, search or checkout form that is part of the app's own logic, or when the answers have to land straight in the app's own database. Build those in the app.
 
 ## How to set it up

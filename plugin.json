@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "forminal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Build forms by chat, embed them on any website and read the submissions, through the hosted Forminal MCP server.",
   "author": {
     "name": "Awesome Tools LLC",
@@ -10,5 +10,99 @@
   "homepage": "https://forminal.ai",
   "repository": "https://github.com/awesomemotive/forminal-mcp",
   "license": "MIT",
-  "keywords": ["forms", "form builder", "contact form", "surveys", "popup", "submissions"]
+  "keywords": ["forms", "form builder", "contact form", "surveys", "popup", "submissions"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Forminal",
+        "shortDescription": "Build forms, read submissions",
+        "longDescription": "Describe the form you need and Forminal builds it: a contact form, sign-up, event registration, survey, feedback form, quiz or order form. Publish it to get a link you can share, or the code to put it on your website as an inline form or a popup. The embed works on WordPress, Webflow, Shopify, Squarespace, Wix and any other site that takes HTML.\n\nWhen people fill it in, ask about the submissions. You can search them, read one in full, count them by day and summarize the answers question by question. You can also tag them, mark them read or as spam, or get a CSV export link.\n\nLater you can change a form, duplicate it, publish or unpublish it, or put back an earlier version. On plans that include Form Analytics you can also check its views, conversion and the field where people stop.\n\nForminal is for small businesses, freelancers, marketers, event organizers, teachers and anyone else who needs a form but would rather not build it.\n\nWhen you connect, you sign in to your Forminal account or create one, and Forminal acts as you, on your plan and your forms. You can disconnect it at any time from your Forminal account. ChatGPT asks you to confirm before it deletes forms or submissions, and deleted ones can't be brought back.\n\nLimits: some features, such as Form Analytics, Custom Domains and Remove Branding, need a paid plan. A form that uses one is still saved, and you're told what the published form does without it. A payment field needs a Stripe account, which you connect in the Forminal builder. Uploaded files and signatures are listed by name and not opened.",
+        "developerName": "Awesome Tools LLC",
+        "category": "Productivity",
+        "capabilities": [
+          "Build a form from a description",
+          "Publish a form and share its link",
+          "Get the embed code for an inline form or a popup",
+          "Change, duplicate or restore an earlier version of a form",
+          "Search and read submissions",
+          "Summarize the answers question by question",
+          "Tag submissions and mark them read or as spam",
+          "Export submissions to CSV",
+          "Check views, conversion and drop-off with Form Analytics",
+          "Find out why submissions aren't reaching an integration"
+        ],
+        "websiteURL": "https://forminal.ai/",
+        "supportURL": "https://forminal.ai/support/",
+        "privacyPolicyURL": "https://forminal.ai/privacy-policy/",
+        "termsOfServiceURL": "https://forminal.ai/terms/",
+        "defaultPrompt": [
+          "Make a contact form with name, email and message, and publish it.",
+          "Give me the code to open my contact form in a popup on my site.",
+          "Summarize this week's submissions to my feedback form."
+        ],
+        "brandColor": "#00B4D8",
+        "brandColorDark": "#00B4D8",
+        "composerIcon": "./assets/icon-512.png",
+        "composerIconDark": "./assets/icon-512-dark.png",
+        "logo": "./assets/icon-512.png",
+        "logoDark": "./assets/icon-512-dark.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Build and publish a new form",
+              "prompt": "Make a contact form with name, email and message fields, and publish it.",
+              "tools_triggered": "get_agent_instructions, create_form, publish_form",
+              "expected_behavior": "Creates a form with a Name, an Email and a Message field, publishes it and replies with its public link. The form shows on the Forms page of the test account."
+            },
+            {
+              "description": "Embed an existing form as a popup",
+              "prompt": "Give me the code to open my Workshop Sign-Up form in a popup from a button on my website.",
+              "tools_triggered": "find_forms, get_embed_snippet",
+              "expected_behavior": "Finds the Workshop Sign-Up form and replies with the embed script tag and a button that opens the form in a popup, with a note that the script goes on the page once."
+            },
+            {
+              "description": "Summarize the answers to a form",
+              "prompt": "Summarize the submissions to my Customer Feedback form. What did people say about pricing?",
+              "tools_triggered": "find_forms, summarize_answers, search_submissions",
+              "expected_behavior": "Reports how many submissions the Customer Feedback form has, the rating average and the option counts per question, and quotes or paraphrases the answers that mention pricing."
+            },
+            {
+              "description": "Change a form without losing its fields",
+              "prompt": "Add a required phone number field to my Workshop Sign-Up form.",
+              "tools_triggered": "get_agent_instructions, get_form, update_form",
+              "expected_behavior": "Reads the form, adds a required Phone field after the existing fields, keeps every other field, saves it and confirms the change. The form stays published."
+            },
+            {
+              "description": "Export submissions to CSV",
+              "prompt": "Export the submissions to my Workshop Sign-Up form as a CSV file.",
+              "tools_triggered": "find_forms, export_submissions",
+              "expected_behavior": "Replies with a CSV download link for the form's submissions and says the link stops working after 15 minutes."
+            }
+          ],
+          "negative": [
+            {
+              "description": "A coding request with no form in it. Forminal builds hosted forms and has nothing to add to general programming help, so the plugin should not be called and the model answers on its own.",
+              "prompt": "Write a Python function that sorts a list of numbers."
+            },
+            {
+              "description": "A delete without the user's go-ahead. delete_forms is first called without confirm, which deletes nothing and answers with what would go. The model shows that list and waits for the user to agree before it deletes anything.",
+              "prompt": "Delete all my forms."
+            },
+            {
+              "description": "A charge the plugin can't make. Forminal takes payments only when a respondent pays on a published form with a payment field, through the owner's Stripe account. No tool charges a card, so the model says it can't take the payment and offers to add a payment field to a form instead.",
+              "prompt": "Charge the last person who filled in my order form $50."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin sells nothing and takes no payments in ChatGPT. A form owner can add a payment field to a form, and respondents pay on the published form through the owner's own Stripe account."
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First release: build, publish and embed forms, and search, summarize, tag and export their submissions."
+      }
+    }
+  }
 }
