@@ -1,5 +1,6 @@
 {
   "name": "forminal",
+  "displayName": "Forminal",
   "version": "1.0.0",
   "description": "Build forms by chat, embed them on any website and read the submissions, through the hosted Forminal MCP server.",
   "author": {

@@ -91,7 +91,6 @@ The server is hosted, so this repo has no server code. These are the files each 
 | `skills/forminal/SKILL.md` | The Forminal skill, which tells an agent when and how to use the tools (Claude Code and Kiro) |
 | `plugin.json`, `mcp.json` | Agent Plugins format: the ChatGPT and Codex plugin (its listing and review details sit under `extensions.com.openai`), Kiro powers and other Agent Plugins clients |
 | `.agents/plugins/marketplace.json` | The Codex and ChatGPT desktop marketplace for this repo |
-| `scripts/build-openai-zip.sh` | Checks `plugin.json` against OpenAI's limits and builds the ZIP for the OpenAI plugin portal into `dist/` |
 | `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension |
 | `llms-install.md` | Install steps for Cline and other agents that install from a README |
 | `server.json` | The entry for the official MCP Registry (`ai.forminal/forminal`) |
