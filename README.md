@@ -16,7 +16,7 @@ The first time your agent calls it, a browser tab opens. You sign in to Forminal
 
 | Client | How |
 |---|---|
-| Claude Code | `claude mcp add forminal --scope user --transport http https://app.forminal.ai/mcp`, then run `/mcp`, pick `forminal` and sign in. Or install the plugin from this repo: `/plugin marketplace add awesomemotive/forminal-mcp`, then `/plugin install forminal@forminal` |
+| Claude Code | `claude mcp add forminal --scope user --transport http https://app.forminal.ai/mcp`, then run `/mcp`, pick `forminal` and sign in. Or install the plugin from this repo: `/plugin install forminal --marketplace awesomemotive/forminal-mcp` (Claude Code 2.1.275 or later; before that, `/plugin marketplace add awesomemotive/forminal-mcp`, then `/plugin install forminal@forminal`) |
 | Claude (web and desktop) | Settings, Connectors, add a custom connector with the address above |
 | ChatGPT | Add the address as a custom MCP server under Plugins (turn on developer mode first if your plan needs it) |
 | Codex | Install the plugin from this repo: `codex plugin marketplace add awesomemotive/forminal-mcp`, then install Forminal from the Plugins Directory. Or add the server alone: `codex mcp add forminal --url https://app.forminal.ai/mcp`, then `codex mcp login forminal` |
