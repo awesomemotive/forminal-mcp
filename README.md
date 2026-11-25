@@ -22,7 +22,7 @@ The first time your agent calls it, a browser tab opens. You sign in to Forminal
 | Codex | Install the plugin from this repo: `codex plugin marketplace add awesomemotive/forminal-mcp`, then install Forminal from the Plugins Directory. Or add the server alone: `codex mcp add forminal --url https://app.forminal.ai/mcp`, then `codex mcp login forminal` |
 | Cursor | Add `{ "mcpServers": { "forminal": { "url": "https://app.forminal.ai/mcp" } } }` to `~/.cursor/mcp.json` or `.cursor/mcp.json` |
 | VS Code | Add `{ "servers": { "forminal": { "type": "http", "url": "https://app.forminal.ai/mcp" } } }` to `.vscode/mcp.json` |
-| Antigravity CLI | `agy plugin install https://github.com/awesomemotive/forminal-mcp`. The first Forminal call opens a browser tab to sign in |
+| Antigravity CLI | `agy plugin install https://github.com/awesomemotive/forminal-mcp`, then open `/plugin`, expand forminal under Installed and choose Sign in |
 | Gemini CLI | `gemini extensions install https://github.com/awesomemotive/forminal-mcp`, or `gemini mcp add --scope user --transport http forminal https://app.forminal.ai/mcp`. Run `/mcp auth forminal` if no tab opens |
 | Kiro | Powers, Add Custom Power, Import power from GitHub, then paste `https://github.com/awesomemotive/forminal-mcp` |
 | Cline | Ask Cline to install Forminal from this repo. It follows [llms-install.md](llms-install.md) |

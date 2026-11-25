@@ -8,7 +8,7 @@
 agy plugin install https://github.com/awesomemotive/forminal-mcp
 ```
 
-The plugin connects to the hosted Forminal MCP server at `https://app.forminal.ai/mcp`, so there's nothing to run. The first time Antigravity calls it, a browser tab opens. You sign in to Forminal or create an account, then allow access. You don't need to create or paste a key.
+The plugin connects to the hosted Forminal MCP server at `https://app.forminal.ai/mcp`, so there's nothing to run. After the install, open `/plugin` in Antigravity, expand forminal under Installed and choose Sign in. A browser tab opens where you sign in to Forminal or create an account, then allow access. The Forminal tools show up once you're signed in, and you don't need to create or paste a key.
 
 ## What's in it
 
