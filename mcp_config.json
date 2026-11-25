@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "forminal": {
-      "serverUrl": "https://app.forminal.ai/mcp"
+      "url": "https://app.forminal.ai/mcp"
     }
   }
 }
