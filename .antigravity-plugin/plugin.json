@@ -4,7 +4,7 @@
   "displayName": "Forminal",
   "description": "Build forms by chat, publish them as a link, embed or popup on any website, and read the submissions through the hosted Forminal MCP server.",
   "version": "1.0.0",
-  "logo": "assets/logo-antigravity.svg",
+  "logo": "assets/logo-antigravity.png",
   "suggestedPrompts": [
     "Make a contact form with name, email and message, and publish it.",
     "Give me the code to open my contact form in a popup on my site.",
