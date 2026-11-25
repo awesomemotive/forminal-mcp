@@ -1,0 +1,21 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "forminal",
+  "displayName": "Forminal",
+  "description": "Build forms by chat, publish them as a link, embed or popup on any website, and read the submissions through the hosted Forminal MCP server.",
+  "version": "1.0.0",
+  "logo": "assets/logo-antigravity.svg",
+  "suggestedPrompts": [
+    "Make a contact form with name, email and message, and publish it.",
+    "Give me the code to open my contact form in a popup on my site.",
+    "Summarize this week's submissions to my feedback form."
+  ],
+  "author": {
+    "name": "Awesome Tools LLC",
+    "url": "https://forminal.ai"
+  },
+  "homepage": "https://forminal.ai",
+  "repository": "https://github.com/awesomemotive/forminal-mcp",
+  "license": "MIT",
+  "keywords": ["forms", "form-builder", "contact-form", "surveys", "popup", "submissions"]
+}
