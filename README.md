@@ -2,7 +2,7 @@
 
 # Forminal MCP server
 
-[Forminal](https://forminal.ai) is a hosted form builder. Your AI agent can build a form from a description, publish it, put it on any website as an inline embed or a popup, and read what people answered. This repository holds the install files for the Forminal MCP server, so you can add Forminal to Claude Code, Gemini CLI, Kiro, Cline and other agents.
+[Forminal](https://forminal.ai) is a hosted form builder. Your AI agent can build a form from a description, publish it, put it on any website as an inline embed or a popup, and read what people answered. This repository holds the install files for the Forminal MCP server, so you can add Forminal to Claude Code, Antigravity CLI, Gemini CLI, Kiro, Cline and other agents.
 
 The server is hosted, so there's nothing to install or run. Your agent connects to this address:
 
@@ -22,6 +22,7 @@ The first time your agent calls it, a browser tab opens. You sign in to Forminal
 | Codex | Install the plugin from this repo: `codex plugin marketplace add awesomemotive/forminal-mcp`, then install Forminal from the Plugins Directory. Or add the server alone: `codex mcp add forminal --url https://app.forminal.ai/mcp`, then `codex mcp login forminal` |
 | Cursor | Add `{ "mcpServers": { "forminal": { "url": "https://app.forminal.ai/mcp" } } }` to `~/.cursor/mcp.json` or `.cursor/mcp.json` |
 | VS Code | Add `{ "servers": { "forminal": { "type": "http", "url": "https://app.forminal.ai/mcp" } } }` to `.vscode/mcp.json` |
+| Antigravity CLI | `agy plugin install https://github.com/awesomemotive/forminal-mcp`. The first Forminal call opens a browser tab to sign in |
 | Gemini CLI | `gemini extensions install https://github.com/awesomemotive/forminal-mcp`, or `gemini mcp add --scope user --transport http forminal https://app.forminal.ai/mcp`. Run `/mcp auth forminal` if no tab opens |
 | Kiro | Powers, Add Custom Power, Import power from GitHub, then paste `https://github.com/awesomemotive/forminal-mcp` |
 | Cline | Ask Cline to install Forminal from this repo. It follows [llms-install.md](llms-install.md) |
@@ -72,7 +73,7 @@ The full list, with every argument, is served as JSON at https://app.forminal.ai
 
 ## Access and deletes
 
-- The agent works as you, on your plan and your forms. You can disconnect it at any time under **Connected assistants** on the API keys tab, and its next call is refused.
+- The agent works as you, on your plan and your forms. You can disconnect it at any time under **Connected Assistants** on the API keys tab, and its next call is refused.
 - Every tool that creates, changes, publishes or deletes something takes an `ack` code from the [agent instructions](https://app.forminal.ai/llms.txt), so an agent reads how Forminal works before it changes anything.
 - Deleting forms or submissions takes two steps. The agent first gets a summary of what would go, and only deletes after you agree.
 - Submissions are written by the people who filled in your form. Agents are told to treat them as data, never as instructions.
@@ -88,9 +89,10 @@ The server is hosted, so this repo has no server code. These are the files each 
 | File | For |
 |---|---|
 | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.mcp.json` | Claude Code plugin and marketplace |
-| `skills/forminal/SKILL.md` | The Forminal skill, which tells an agent when and how to use the tools (Claude Code and Kiro) |
+| `skills/forminal/SKILL.md` | The Forminal skill, which tells an agent when and how to use the tools (Claude Code, Antigravity and Kiro) |
 | `plugin.json`, `mcp.json` | Agent Plugins format: the ChatGPT and Codex plugin (its listing and review details sit under `extensions.com.openai`), Kiro powers and other Agent Plugins clients |
 | `.agents/plugins/marketplace.json` | The Codex and ChatGPT desktop marketplace for this repo |
+| `.antigravity-plugin/`, `mcp_config.json`, `rules/forminal.md`, `assets/logo-antigravity.svg` | Antigravity plugin: its manifest and Marketplace README, the server, an always-on rule and the logo. It uses `skills/forminal/` too |
 | `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension |
 | `llms-install.md` | Install steps for Cline and other agents that install from a README |
 | `server.json` | The entry for the official MCP Registry (`ai.forminal/forminal`) |
