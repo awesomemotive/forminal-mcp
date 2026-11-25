@@ -36,4 +36,4 @@ Forminal is a hosted form builder. A form lives on Forminal, gets its own public
 - `delete_forms` and `delete_submissions` need the user's clear go. Call them without `confirm` first, show the user what would be deleted, and send `confirm: true` only after they agree. Nothing brings deleted items back.
 - An export link from `export_submissions` works for anyone who has it, so give it to the user and don't paste it anywhere else.
 
-More: https://forminal.ai/docs/developers/mcp-server/ and https://app.forminal.ai/llms.txt
+More: https://forminal.ai/docs/mcp-server/ and https://app.forminal.ai/llms.txt

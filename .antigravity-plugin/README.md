@@ -34,6 +34,6 @@ The free Lite plan includes unlimited forms and submissions, with no card needed
 ## Help, privacy and terms
 
 - Support: support@forminal.ai, or https://forminal.ai/support/
-- Docs: https://forminal.ai/docs/developers/mcp-server/
+- Docs: https://forminal.ai/docs/mcp-server/
 - Privacy policy: https://forminal.ai/privacy/
 - Terms: https://forminal.ai/terms/
