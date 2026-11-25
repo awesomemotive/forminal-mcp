@@ -91,7 +91,7 @@ The server is hosted, so this repo has no server code. These are the files each 
 | `skills/forminal/SKILL.md` | The Forminal skill, which tells an agent when and how to use the tools (Claude Code, Antigravity and Kiro) |
 | `plugin.json`, `mcp.json` | Agent Plugins format: the ChatGPT and Codex plugin (its listing and review details sit under `extensions.com.openai`), Kiro powers and other Agent Plugins clients |
 | `.agents/plugins/marketplace.json` | The Codex and ChatGPT desktop marketplace for this repo |
-| `.antigravity-plugin/`, `mcp_config.json`, `rules/forminal.md`, `assets/logo-antigravity.svg` | Antigravity plugin: its manifest and Marketplace README, the server, an always-on rule and the logo. It uses `skills/forminal/` too |
+| `.antigravity-plugin/`, `mcp_config.json`, `rules/forminal.md`, `assets/logo-antigravity.png` | Antigravity plugin: its manifest and Marketplace README, the server, an always-on rule and the logo. It uses `skills/forminal/` too |
 | `llms-install.md` | Install steps for Cline and other agents that install from a README |
 | `server.json` | The entry for the official MCP Registry (`ai.forminal/forminal`) |
 | `assets/` | Icons |
